@@ -1,0 +1,68 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "1ef32d703d0c784420ac",
+  "position": {
+    "x": 692.03688181056168,
+    "y": 107.29253981559096,
+    "z": 7008,
+    "height": 66.521374685666387,
+    "width": 175.95976529756916,
+    "tabOrder": 7008
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "BPS_20_26_LourencoFLemos"
+                    }
+                  },
+                  "Property": "descricao_catmat"
+                }
+              },
+              "queryRef": "BPS_20_26_LourencoFLemos.descricao_catmat",
+              "nativeQueryRef": "ITEM",
+              "active": true,
+              "displayName": "ITEM"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "selfFilterEnabled": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

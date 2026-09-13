@@ -1,0 +1,63 @@
+table MEDIDAS
+	lineageTag: 96e82e3b-78d4-4903-ade6-6c905f52e0d3
+
+	measure 'Valor Total Comprado' = SUM(BPS_20_26_LourencoFLemos[preco_total])
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: 6043a95b-82c6-40b1-b4b8-5a185eabe807
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure 'Quantidade Total Comprada' = SUM(BPS_20_26_LourencoFLemos[qtd_itens_comprados])
+		formatString: #,0.00
+		lineageTag: 0c335d35-4aaa-4bd0-973a-363d5315a044
+
+	measure 'Quantidade de Compras Realizadas' = COUNTROWS(BPS_20_26_LourencoFLemos)
+		formatString: 0
+		lineageTag: a932a171-3d92-4002-a852-90d86787f5af
+
+	measure 'Quantidade de Instituicoes Compradoras' = DISTINCTCOUNT(BPS_20_26_LourencoFLemos[cnpj_instituicao])
+		formatString: 0
+		lineageTag: 7160ea55-8a32-4949-9ad5-f5584fe04796
+
+	measure 'Quantidade de Fornecedores' = DISTINCTCOUNT(BPS_20_26_LourencoFLemos[cnpj_fornecedor])
+		formatString: 0
+		lineageTag: 92af6fa8-5b7d-42c4-bcc6-c9ac2b0d8727
+
+	measure 'Menor Preco Unitario' = MIN(BPS_20_26_LourencoFLemos[preco_unitario])
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 0609aba4-b851-47d3-83c2-921ee573cb73
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-US"}
+
+	measure 'Maior Preco Unitario' = MAX(BPS_20_26_LourencoFLemos[preco_unitario])
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 2ccd5dc0-0fd7-44e2-8556-5ce8d065b0fc
+
+	measure 'Variação de Preco Unitario' =
+			
+			[Maior Preco Unitario] - [Menor Preco Unitario]
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: eab50139-a9da-4ec0-aeea-34079f14e5b6
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-US"}
+
+	measure 'Preco Unitario Medio Ponderado' =
+			
+			DIVIDE([Valor Total Comprado], [Quantidade Total Comprada], 0)
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: b486cae8-c41f-43f1-8d93-e8d60524559f
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	partition MEDIDAS = m
+		mode: import
+		source =
+				let
+				    Fonte = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Coluna 1" = _t]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Fonte,{{"Coluna 1", type text}}),
+				    #"Colunas Removidas" = Table.RemoveColumns(#"Tipo Alterado",{"Coluna 1"})
+				in
+				    #"Colunas Removidas"
+
+	annotation PBI_ResultType = Table
+

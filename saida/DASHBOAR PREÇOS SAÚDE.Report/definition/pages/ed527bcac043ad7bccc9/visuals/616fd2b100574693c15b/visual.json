@@ -1,0 +1,60 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "616fd2b100574693c15b",
+  "position": {
+    "x": 464.56542502387771,
+    "y": 105.13849092645654,
+    "z": 9000,
+    "height": 66.01719197707736,
+    "width": 213.94460362941737,
+    "tabOrder": 9000
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "BPS_20_26_LourencoFLemos"
+                    }
+                  },
+                  "Property": "modalidade_compra"
+                }
+              },
+              "queryRef": "BPS_20_26_LourencoFLemos.modalidade_compra",
+              "nativeQueryRef": "MODALIDADE COMPRA",
+              "active": true,
+              "displayName": "MODALIDADE COMPRA"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

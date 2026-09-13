@@ -1,0 +1,14 @@
+relationship bc57602c-709d-4830-a52c-20d4233c163f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: BPS_20_26_LourencoFLemos.data_insercao
+	toColumn: LocalDateTable_12d30124-8a32-407d-9e6f-6b08947dba8b.Date
+
+relationship d391235e-a49e-48a9-a207-fd0eaacb5398
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Calendario.Date
+	toColumn: LocalDateTable_aeb5fc52-2fd7-43dd-a902-e258e882b8c7.Date
+
+relationship d402afc8-9b76-6811-5598-cbffe1e2633b
+	fromColumn: BPS_20_26_LourencoFLemos.data_compra
+	toColumn: Calendario.Date
+

@@ -1,0 +1,57 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "87de930e999875b78b92",
+  "position": {
+    "x": 559.00293255131965,
+    "y": 172.60997067448679,
+    "z": 2000,
+    "height": 98.181818181818173,
+    "width": 196.36363636363635,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "MEDIDAS"
+                    }
+                  },
+                  "Property": "Quantidade de Compras Realizadas"
+                }
+              },
+              "queryRef": "MEDIDAS.Quantidade de Compras Realizadas",
+              "nativeQueryRef": "Compras Realizadas",
+              "displayName": "Compras Realizadas"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "MEDIDAS"
+                  }
+                },
+                "Property": "Quantidade de Compras Realizadas"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
