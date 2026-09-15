@@ -35,13 +35,6 @@
 
 - **CSV consolidado (BPS 2020–2026)** — `BPS_20_26_LourencoFLemos`, importado via `Csv.Document`, delimitador `;`, 26 colunas, encoding UTF-8 (65001).
 - **Calendário customizado** — tabela `Calendario` gerada inteiramente por DAX (`CALENDAR(DATE(2020,1,1), DATE(2026,12,31))` + colunas derivadas de ano/mês/trimestre/dia), sem fonte externa.
-
-> ⚠️ **Path pessoal detectado.** A partição de `BPS_20_26_LourencoFLemos` referencia um caminho local fixo:
-> `C:\Users\Usuário\Downloads\MINI PROJETO PREÇOS SAÚDE\saida\BPS_20_26_LourencoFLemos.csv`
-> Isso significa que o `.pbip` só atualiza em máquinas com esse caminho exato. Para publicar/entregar o projeto, considere trocar por um **parâmetro de pasta** (Power Query → Gerenciar Parâmetros) antes de subir ao GitHub, ou deixar claro no README que o caminho precisa ser ajustado por quem for reproduzir.
->
-> ⚠️ **Dois padrões de data coexistindo.** O modelo tem `Auto Date/Time` ligado, o que gerou 2 tabelas ocultas (`LocalDateTable_*`) — uma para `BPS_20_26_LourencoFLemos[data_insercao]` e outra para `Calendario[Date]`. Ao mesmo tempo, existe uma tabela `Calendario` explícita e customizada, usada no relacionamento real com `BPS_20_26_LourencoFLemos[data_compra]`. Ou seja: `data_compra` usa o calendário customizado (bom para relatórios), enquanto `data_insercao` usa a hierarquia automática oculta do Power BI. Essas tabelas ocultas foram **excluídas** desta documentação (não fazem parte do modelo intencional) — para avaliar se isso é um problema de modelagem, rode uma revisão de qualidade do modelo.
-
 ---
 
 ## Configurações relevantes do modelo

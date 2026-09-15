@@ -135,4 +135,4 @@ Cria uma tabela vazia (remove a única coluna logo em seguida) — comportamento
 
 ---
 
-*Tabelas `LocalDateTable_*` e `DateTableTemplate_*` (auto-geradas pelo Auto Date/Time) foram excluídas deste catálogo — ver aviso em [00 · Overview](00-overview.md).*
+*Tabelas `LocalDateTable_*` e `DateTableTemplate_*` (auto-geradas pelo Auto Date/Time) foram excluídas deste catálogo 
